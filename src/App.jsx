@@ -1,122 +1,112 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import headerLogo from './assets/page_header.svg'
 import './App.css'
 
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://erbulwjhmkqngeqbkyot.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVyYnVsd2pobWtxbmdlcWJreW90Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5NTU0OTUsImV4cCI6MjEwNjUzMTQ5NX0.AygQZOelYRQFa9Hs3kOGXQ24D0gitjdDcfIpQThfybA'
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
 function App() {
-  const [count, setCount] = useState(0)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    
+    /*
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevents page refresh on form submit
 
-      <div className="ticks"></div>
+        const { data, error } = await supabase.auth.signInWithPassword({
+            // Uses state variables directly, or email/password depending on your Supabase config
+            email: username,
+            password,
+        });
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        if (error) console.error('Login error:', error.message);
+        else console.log('Logged in user:', data.user);
+    };
+*/
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        var email = 'farmer2@yahoo.ca';
+        var password = 'examplepw';
+        var fullName = 'farmer Doe';
+        var role = 'Farmer';
+
+        const signUpUser = async (email, password, fullName, role) => {
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    data: {
+                        full_name: fullName,
+                        role: role,
+                    },
+                },
+            });
+
+            return { data, error };
+        };
+
+        // Execute the function and capture the output
+        const { data, error } = await signUpUser(email, password, fullName, role);
+
+        if (error) {
+            console.error('Sign up error:', error.message);
+        } else {
+            console.log('User registered and profile automatically created:', data.user);
+        }
+    };
+
+    
+
+    return (
+        <div className="app-container">
+            <header className="app-header">
+                <img
+                    src={headerLogo}
+                    alt="RAS Logo"
+                    className="header-logo"
+                    style={{ maxWidth: '580px', width: '100%', height: 'auto' }}
+                />
+            </header>
+
+            <main className="login-container">
+                <form onSubmit={handleSubmit} className="login-form">
+                    <h2>Login</h2>
+
+                    <div className="form-group">
+                        <label htmlFor="username">Username </label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="password">Password </label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" className="login-button">
+                        Sign In
+                    </button>
+                </form>
+            </main>
+        </div>
+    )
 }
 
 export default App

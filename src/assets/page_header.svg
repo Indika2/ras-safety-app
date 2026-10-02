@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient using RAS Forest Green -->
+    <linearGradient id="rasBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B4F32"/>
+      <stop offset="100%" stop-color="#062C1C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Header Background Banner -->
+  <rect width="1200" height="300" fill="url(#rasBg)"/>
+
+  <!-- Top Decorative Border Accent -->
+  <rect x="0" y="0" width="1200" height="10" fill="#FFFFFF" opacity="0.3"/>
+
+  <!-- Left Side: RAS Logo Graphic (Faithful to Logo JPG) -->
+  <g transform="translate(60, 45)">
+    <!-- Roof Line -->
+    <path d="M 0 32 L 105 0 L 210 32 L 210 44 L 105 12 L 0 44 Z" fill="#FFFFFF"/>
+    
+    <!-- Top Horizontal Bar -->
+    <rect x="0" y="48" width="210" height="14" fill="#FFFFFF"/>
+    
+    <!-- Letter R -->
+    <path d="M 15 75 H 52 C 63 75 70 82 70 91 C 70 98 64 104 55 106 L 71 135 H 52 L 38 108 H 31 V 135 H 15 V 75 Z M 31 90 V 97 H 50 C 53 97 55 95 55 93.5 C 55 91.5 53 90 50 90 H 31 Z" fill="#FFFFFF"/>
+    
+    <!-- Letter A -->
+    <path d="M 105 75 L 128 135 H 111 L 106 122 H 104 L 99 135 H 82 L 105 75 Z M 105 92 L 100 110 H 110 L 105 92 Z" fill="#FFFFFF"/>
+    
+    <!-- Letter S -->
+    <path d="M 140 120 C 140 130 150 136 166 136 C 182 136 193 129 193 118 C 193 102 172 101 162 98 C 156 96 156 92 161 92 C 168 92 181 94 189 97 L 193 84 C 186 80 173 75 161 75 C 145 75 139 83 139 93 C 139 108 160 110 170 113 C 176 115 176 119 171 119 C 163 119 149 116 142 112 L 140 120 Z" fill="#FFFFFF"/>
+    
+    <!-- Bottom Horizontal Bar -->
+    <rect x="0" y="148" width="210" height="14" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="310" y1="50" x2="310" y2="250" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+
+  <!-- Right Side: Header App Title Text -->
+  <text x="350" y="130" font-family="'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-weight="800" font-size="42" fill="#FFFFFF" letter-spacing="1.5">
+    RON ANDERSON &amp; SONS
+  </text>
+  
+  <text x="350" y="180" font-family="'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-weight="600" font-size="28" fill="#9AE6B4" letter-spacing="2">
+    SITE SAFETY FORMS PORTAL
+  </text>
+
+  <!-- Bottom Accent Bar -->
+  <rect x="0" y="290" width="1200" height="10" fill="#2F855A"/>
+</svg>
