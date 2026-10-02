@@ -1,0 +1,136 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\public\\favicon.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:public\\favicon.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\supabaseClient.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\supabaseClient.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.jsx",
+              "DocumentMoniker": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\App.jsx",
+              "RelativeDocumentMoniker": "src\\App.jsx",
+              "ToolTip": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\App.jsx",
+              "RelativeToolTip": "src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-10-02T16:50:41.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "favicon.svg",
+              "DocumentMoniker": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\public\\favicon.svg",
+              "RelativeDocumentMoniker": "public\\favicon.svg",
+              "ToolTip": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\public\\favicon.svg",
+              "RelativeToolTip": "public\\favicon.svg",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVDhPrZRraFtlGMd/OT3NrWlNTdbYy9a1my22na2MeZlDJ7NtSnRuMERkzCkoDkS2D6IfBEH8IMMLhYEM9IMfilVHUaEsFJG6YnG2Vbe1zK60qWvTS1JM06a5nMv7\u002BiFpTDv8pH/4w/uew/vjef/nOQ/8X5JSWrY/6\u002BvrG/B6vU9u7qWUeQPouk4sFrvW3d19Znh4\u002BOfCs3eov79fmKYpTNMUhmkKwzCFaRjCyHlhYUGMjY2J3t7ecb/f3154VinckKsEQDME5vof6NFP0EIdJEf3k7p2Am1jGbfbTXt7e1MgELhw5MiRPLBoc2GxOZWyZ897qu7Z8cbwcozE6gU8qQ/QZi\u002BTSu9EvesURbY6Vm58hvA8QWlpKT6fz\u002BNwOPaHQqEr0Wg0ogIorruLPF1nDzYfOvieq95K1\u002B7vqFkLshjeyxVxjtBaA4fLqmmvd1EyM8ZsJMLk5CSqqlJbW9sEVAHjKkBZ59m9\u002Bw773z35WMnDfu/7WG8NEpx7jt8dx5AVe1jXJV9MREluJPHfd4Jy7wPomo5arDI9Pb15uWxmNa2PPN1xv73taMWbavn4JZYSr9AeeJtXH22mWktg03TsXi9fTcRYcR7AZrNS4nJit9tRFCWfswLQVC0Dz\u002By66LTNjFoGZ19Ctr7G0rrJhiZo9DowMwY2azGGzc7grb9ASqQEpEQIka9MBeisG232rQyov6TOcbn\u002BeVI3VjGFRCJBgttThoGCZlEIr6ayoOxbKOgAdfiH3a31nh73zZUuRn2n5e2xRYsQJjIHk0KyvBBF1000TcNbU/kPpAAEoD7UEn9h9jrKT\u002BIpc0V3pp2ZhOvTUw\u002BikC3fFIKMKXJwsKu5jCwSi7RshRnLsc7ZcOPNH41y3057urykpoqPhm7T4rVSrMDcms7QXIJIPIWS3uD88X3cW\u002BHKlpX7GfMfIL1kqfr428zrU6Gl4NTkn2nd5mC\u002B2MU3i4Kv502ublixlLlxOK2cPLArC/oXKQi\u002BD1SOl5ijn7\u002BVnPttYPrX60xNh5mPbRBZTRBdjJAIh3mxuZxjbZWbSW3nAKBMhuWZpkr99MWWS1\u002B\u002Bk3h56JBj6erjO6zUGXHabAbH97j48GgjnU0\u002BipSCIZPtjS2Z3aGenp6wYRhC07SsM5m8M1ucFpqmiZGREdHQ0NDBZp8VKplMTgSDwUohxJZZVjjTCtfxeHwGiG7D/Hf9Dd9Z6lkKGuFtAAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-10-02T16:49:46.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "index.html",
+              "DocumentMoniker": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\index.html",
+              "RelativeDocumentMoniker": "index.html",
+              "ToolTip": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\index.html",
+              "RelativeToolTip": "index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-10-02T16:49:40.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "vite.config.js",
+              "DocumentMoniker": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\vite.config.js",
+              "RelativeDocumentMoniker": "vite.config.js",
+              "ToolTip": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\vite.config.js",
+              "RelativeToolTip": "vite.config.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-10-02T16:49:34.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.jsx",
+              "DocumentMoniker": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\main.jsx",
+              "RelativeDocumentMoniker": "src\\main.jsx",
+              "ToolTip": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\main.jsx",
+              "RelativeToolTip": "src\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-10-02T16:30:42.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "supabaseClient.js",
+              "DocumentMoniker": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\supabaseClient.js",
+              "RelativeDocumentMoniker": "src\\supabaseClient.js",
+              "ToolTip": "D:\\VS Projects\\RASSafetyApp\\ras-safety-app\\src\\supabaseClient.js",
+              "RelativeToolTip": "src\\supabaseClient.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-10-02T16:30:39.52Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 174,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
