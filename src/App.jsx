@@ -361,12 +361,85 @@ export function FramerDashboard({ profile, onLogout }) {
 }
 
 function AdminDashboard({ profile, onLogout }) {
+    const [allSubmissions, setAllSubmissions] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        fetchAllSubmissions()
+    }, [])
+
+    const fetchAllSubmissions = async () => {
+        setLoading(true)
+        const { data, error } = await supabase
+            .from('submissions')
+            .select(`
+                id,
+                submission_date,
+                ppe_checked,
+                fall_protection_checked,
+                ladders_inspected,
+                tools_ok,
+                notes,
+                created_at,
+                sites ( name ),
+                profiles ( full_name ),
+                photos ( photo_url )
+            `)
+            .order('created_at', { ascending: false })
+
+        if (error) {
+            console.error('Error fetching all submissions:', error.message)
+        } else {
+            setAllSubmissions(data || [])
+        }
+        setLoading(false)
+    }
+
     return (
-        <div className="dashboard">
-            <h2>Admin Dashboard - Welcome, {profile?.full_name || 'Admin'}</h2>
-            <p>Review site safety form submissions across all sites.</p>
-            {/* Insert Admin Submissions Table Component Here */}
-            <button onClick={onLogout}>Sign Out</button>
+        <div className="dashboard admin-dashboard">
+            <header className="dashboard-header" style={{ marginBottom: '1.5rem' }}>
+                <h2>Welcome, {profile?.full_name || 'Admin'}</h2>
+                <button onClick={onLogout} className="logout-btn">Sign Out</button>
+            </header>
+
+            <section className="submissions-list-section">
+                <h3>All Submitted Safety Forms</h3>
+                {loading ? (
+                    <p>Loading safety form submissions...</p>
+                ) : allSubmissions.length === 0 ? (
+                    <p>No safety forms submitted across any site yet.</p>
+                ) : (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        {allSubmissions.map((sub) => (
+                            <div key={sub.id} style={{ border: '1px solid #ddd', borderRadius: '6px', padding: '1rem', backgroundColor: '#fafafa' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold' }}>
+                                    <span>Submitted By: {sub.profiles?.full_name || 'Unknown Worker'}</span>
+                                    <span>Site: {sub.sites?.name || 'N/A'}</span>
+                                    <span>Date: {sub.submission_date}</span>
+                                </div>
+                                <hr style={{ margin: '0.5rem 0' }} />
+                                <ul>
+                                    <li>PPE Worn: {sub.ppe_checked ? 'Yes' : 'No'}</li>
+                                    <li>Fall Protection: {sub.fall_protection_checked ? 'Yes' : 'No'}</li>
+                                    <li>Ladders/Scaffolding Inspected: {sub.ladders_inspected ? 'Yes' : 'No'}</li>
+                                    <li>Tools Condition OK: {sub.tools_ok ? 'Yes' : 'No'}</li>
+                                </ul>
+                                {sub.notes && <p><strong>Notes:</strong> {sub.notes}</p>}
+                                {sub.photos && sub.photos.length > 0 && (
+                                    <div style={{ marginTop: '0.5rem' }}>
+                                        <strong>Attached Photo:</strong><br />
+                                        <img
+                                            src={sub.photos[0].photo_url}
+                                            alt="Safety submission"
+                                            style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px' }}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </section>
         </div>
     )
 }
