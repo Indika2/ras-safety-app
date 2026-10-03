@@ -15,7 +15,7 @@ export function FramerDashboard({ profile, onLogout }) {
     const [mySubmissions, setMySubmissions] = useState([])
     const [loadingSites, setLoadingSites] = useState(true)
 
-    // Form state
+    // Safety Submit Form states
     const [selectedSite, setSelectedSite] = useState('')
     const [submissionDate, setSubmissionDate] = useState(new Date().toISOString().split('T')[0])
     const [ppeChecked, setPpeChecked] = useState(false)
@@ -27,7 +27,7 @@ export function FramerDashboard({ profile, onLogout }) {
     const [submitting, setSubmitting] = useState(false)
     const [statusMessage, setStatusMessage] = useState({ type: '', text: '' })
 
-    // Fetch active sites on mount
+    // Fetch active sites on mount only
     useEffect(() => {
         fetchSites()
     }, [])
@@ -58,18 +58,7 @@ export function FramerDashboard({ profile, onLogout }) {
     const fetchMySubmissions = async () => {
         const { data, error } = await supabase
             .from('submissions')
-            .select(`
-                id,
-                submission_date,
-                ppe_checked,
-                fall_protection_checked,
-                ladders_inspected,
-                tools_ok,
-                notes,
-                created_at,
-                sites ( name ),
-                photos ( photo_url )
-            `)
+            .select(`id,submission_date,ppe_checked,fall_protection_checked,ladders_inspected,tools_ok,notes,created_at,sites ( name ),photos ( photo_url )            `)
             .eq('framer_id', profile.id)
             .order('created_at', { ascending: false })
 
@@ -84,20 +73,20 @@ export function FramerDashboard({ profile, onLogout }) {
         const file = e.target.files[0]
         if (!file) return
 
-        // File validation (type and max size 5MB)
+        // File validation (type and max size 1MB)
         if (!file.type.startsWith('image/')) {
             setStatusMessage({ type: 'error', text: 'Please upload a valid image file.' })
             return
         }
-        if (file.size > 5 * 1024 * 1024) {
-            setStatusMessage({ type: 'error', text: 'File size must be less than 5MB.' })
+        if (file.size > 1024 * 1024) {
+            setStatusMessage({ type: 'error', text: 'File size must be less than 1MB.' })
             return
         }
         setSelectedFile(file)
         setStatusMessage({ type: '', text: '' })
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmitSafetyForm = async (e) => {
         e.preventDefault()
         setSubmitting(true)
         setStatusMessage({ type: '', text: '' })
@@ -176,15 +165,17 @@ export function FramerDashboard({ profile, onLogout }) {
             </header>
 
             {/* Navigation Links */}
-            <nav className="dashboard-nav" style={{ display: 'flex', gap: '1rem', borderBottom: '2px solid #ccc', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>
+            <nav className="dashboard-nav" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', borderBottom: '2px solid #ccc', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>
                 <button
                     onClick={() => setActiveTab('new')}
                     style={{
                         padding: '8px 16px',
                         fontWeight: activeTab === 'new' ? 'bold' : 'normal',
-                        borderBottom: activeTab === 'new' ? '3px solid #0056b3' : 'none',
+                        borderTop: 'none',
+                        borderLeft: 'none',
+                        borderRight: 'none',
+                        borderBottom: activeTab === 'new' ? '3px solid #0056b3' : '3px solid transparent',
                         background: 'none',
-                        border: 'none',
                         cursor: 'pointer'
                     }}
                 >
@@ -195,9 +186,11 @@ export function FramerDashboard({ profile, onLogout }) {
                     style={{
                         padding: '8px 16px',
                         fontWeight: activeTab === 'list' ? 'bold' : 'normal',
-                        borderBottom: activeTab === 'list' ? '3px solid #0056b3' : 'none',
+                        borderTop: 'none',
+                        borderLeft: 'none',
+                        borderRight: 'none',
+                        borderBottom: activeTab === 'list' ? '3px solid #0056b3' : '3px solid transparent',
                         background: 'none',
-                        border: 'none',
                         cursor: 'pointer'
                     }}
                 >
@@ -207,16 +200,16 @@ export function FramerDashboard({ profile, onLogout }) {
 
             {/* TAB 1: New Daily Submit Form */}
             {activeTab === 'new' && (
-                <section className="form-section">
+                <section className="form-section" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <h3>Site Safety Form</h3>
 
                     {statusMessage.text && (
-                        <div style={{ padding: '10px', marginBottom: '1rem', color: statusMessage.type === 'error' ? '#721c24' : '#155724', backgroundColor: statusMessage.type === 'error' ? '#f8d7da' : '#d4edda', borderRadius: '4px' }}>
+                        <div style={{ width: '100%', maxWidth: '500px', padding: '10px', marginBottom: '1rem', color: statusMessage.type === 'error' ? '#721c24' : '#155724', backgroundColor: statusMessage.type === 'error' ? '#f8d7da' : '#d4edda', borderRadius: '4px' }}>
                             {statusMessage.text}
                         </div>
                     )}
 
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '500px' }}>
+                    <form onSubmit={handleSubmitSafetyForm} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: '500px', textAlign: 'left' }}>
                         <div>
                             <label style={{ display: 'block', fontWeight: 'bold' }}>Job Site:</label>
                             {loadingSites ? (
@@ -257,7 +250,7 @@ export function FramerDashboard({ profile, onLogout }) {
                                         checked={ppeChecked}
                                         onChange={(e) => setPpeChecked(e.target.checked)}
                                     />
-                                    PPE worn (Hard hat, high-vis vest, boots, eye protection)
+                                    PPE worn (Hard hat, boots, eye protection)
                                 </label>
                                 <label>
                                     <input
