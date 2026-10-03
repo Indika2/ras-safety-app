@@ -3,10 +3,86 @@ import headerLogo from './assets/page_header.svg'
 import './App.css'
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://erbulwjhmkqngeqbkyot.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVyYnVsd2pobWtxbmdlcWJreW90Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5NTU0OTUsImV4cCI6MjEwNjUzMTQ5NX0.AygQZOelYRQFa9Hs3kOGXQ24D0gitjdDcfIpQThfybA'
-
+//const supabaseUrl = 'https://erbulwjhmkqngeqbkyot.supabase.co'
+//const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVyYnVsd2pobWtxbmdlcWJreW90Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5NTU0OTUsImV4cCI6MjEwNjUzMTQ5NX0.AygQZOelYRQFa9Hs3kOGXQ24D0gitjdDcfIpQThfybA'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+// Modal component to display enlarged photo popup
+function ImageModal({ photoUrl, onClose }) {
+    if (!photoUrl) return null
+
+    return (
+        <div
+            onClick={onClose}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0,0,0,0.85)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 10000,
+                padding: '20px',
+                cursor: 'pointer'
+            }}
+        >
+            <div
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                    position: 'relative',
+                    maxWidth: '90vw',
+                    maxHeight: '90vh',
+                    backgroundColor: '#fff',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                }}
+            >
+                <button
+                    onClick={onClose}
+                    style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        background: 'rgba(0,0,0,0.6)',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '50%',
+                        width: '32px',
+                        height: '32px',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 1
+                    }}
+                >
+                    &times;
+                </button>
+                <img
+                    src={photoUrl}
+                    alt="Safety Submission Enlarged"
+                    style={{
+                        maxWidth: '100%',
+                        maxHeight: '85vh',
+                        objectFit: 'contain',
+                        display: 'block'
+                    }}
+                />
+            </div>
+        </div>
+    )
+}
 
 // Placeholder views for Framer and Admin
 export function FramerDashboard({ profile, onLogout }) {
@@ -26,6 +102,7 @@ export function FramerDashboard({ profile, onLogout }) {
     const [selectedFile, setSelectedFile] = useState(null)
     const [submitting, setSubmitting] = useState(false)
     const [statusMessage, setStatusMessage] = useState({ type: '', text: '' })
+    const [selectedModalImage, setSelectedModalImage] = useState(null)
 
     // Fetch active sites on mount only
     useEffect(() => {
@@ -346,7 +423,8 @@ export function FramerDashboard({ profile, onLogout }) {
                                             <img
                                                 src={sub.photos[0].photo_url}
                                                 alt="Safety submission"
-                                                style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px' }}
+                                                onClick={() => setSelectedModalImage(sub.photos[0].photo_url)}
+                                                style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px', cursor: 'pointer' }}
                                             />
                                         </div>
                                     )}
@@ -356,6 +434,8 @@ export function FramerDashboard({ profile, onLogout }) {
                     )}
                 </section>
             )}
+
+            <ImageModal photoUrl={selectedModalImage} onClose={() => setSelectedModalImage(null)} />
         </div>
     )
 }
@@ -363,6 +443,7 @@ export function FramerDashboard({ profile, onLogout }) {
 function AdminDashboard({ profile, onLogout }) {
     const [allSubmissions, setAllSubmissions] = useState([])
     const [loading, setLoading] = useState(true)
+    const [selectedModalImage, setSelectedModalImage] = useState(null)
 
     useEffect(() => {
         fetchAllSubmissions()
@@ -431,7 +512,8 @@ function AdminDashboard({ profile, onLogout }) {
                                         <img
                                             src={sub.photos[0].photo_url}
                                             alt="Safety submission"
-                                            style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px' }}
+                                            onClick={() => setSelectedModalImage(sub.photos[0].photo_url)}
+                                            style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px', cursor: 'pointer' }}
                                         />
                                     </div>
                                 )}
@@ -440,6 +522,8 @@ function AdminDashboard({ profile, onLogout }) {
                     </div>
                 )}
             </section>
+
+            <ImageModal photoUrl={selectedModalImage} onClose={() => setSelectedModalImage(null)} />
         </div>
     )
 }
