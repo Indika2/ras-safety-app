@@ -410,24 +410,30 @@ export function FramerDashboard({ profile, onLogout }) {
                                         <span>Date: {sub.submission_date}</span>
                                     </div>
                                     <hr style={{ margin: '0.5rem 0' }} />
-                                    <ul>
-                                        <li>PPE Worn: {sub.ppe_checked ? 'Yes' : 'No'}</li>
-                                        <li>Fall Protection: {sub.fall_protection_checked ? 'Yes' : 'No'}</li>
-                                        <li>Ladders/Scaffolding Inspected: {sub.ladders_inspected ? 'Yes' : 'No'}</li>
-                                        <li>Tools Condition OK: {sub.tools_ok ? 'Yes' : 'No'}</li>
-                                    </ul>
-                                    {sub.notes && <p><strong>Notes:</strong> {sub.notes}</p>}
-                                    {sub.photos && sub.photos.length > 0 && (
-                                        <div style={{ marginTop: '0.5rem' }}>
-                                            <strong>Attached Photo:</strong><br />
-                                            <img
-                                                src={sub.photos[0].photo_url}
-                                                alt="Safety submission"
-                                                onClick={() => setSelectedModalImage(sub.photos[0].photo_url)}
-                                                style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px', cursor: 'pointer' }}
-                                            />
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', alignItems: 'start' }}>
+                                        <div>
+                                            <ul>
+                                                <li>PPE Worn: {sub.ppe_checked ? 'Yes' : 'No'}</li>
+                                                <li>Fall Protection: {sub.fall_protection_checked ? 'Yes' : 'No'}</li>
+                                                <li>Ladders/Scaffolding Inspected: {sub.ladders_inspected ? 'Yes' : 'No'}</li>
+                                                <li>Tools Condition OK: {sub.tools_ok ? 'Yes' : 'No'}</li>
+                                            </ul>
+                                            {sub.notes && <p style={{ marginTop: '0.5rem' }}><strong>Notes:</strong> {sub.notes}</p>}
                                         </div>
-                                    )}
+                                        <div>
+                                            {sub.photos && sub.photos.length > 0 && (
+                                                <div>
+                                                    <strong>Attached Photo:</strong><br />
+                                                    <img
+                                                        src={sub.photos[0].photo_url}
+                                                        alt="Safety submission"
+                                                        onClick={() => setSelectedModalImage(sub.photos[0].photo_url)}
+                                                        style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px', cursor: 'pointer' }}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -499,24 +505,30 @@ function AdminDashboard({ profile, onLogout }) {
                                     <span>Date: {sub.submission_date}</span>
                                 </div>
                                 <hr style={{ margin: '0.5rem 0' }} />
-                                <ul>
-                                    <li>PPE Worn: {sub.ppe_checked ? 'Yes' : 'No'}</li>
-                                    <li>Fall Protection: {sub.fall_protection_checked ? 'Yes' : 'No'}</li>
-                                    <li>Ladders/Scaffolding Inspected: {sub.ladders_inspected ? 'Yes' : 'No'}</li>
-                                    <li>Tools Condition OK: {sub.tools_ok ? 'Yes' : 'No'}</li>
-                                </ul>
-                                {sub.notes && <p><strong>Notes:</strong> {sub.notes}</p>}
-                                {sub.photos && sub.photos.length > 0 && (
-                                    <div style={{ marginTop: '0.5rem' }}>
-                                        <strong>Attached Photo:</strong><br />
-                                        <img
-                                            src={sub.photos[0].photo_url}
-                                            alt="Safety submission"
-                                            onClick={() => setSelectedModalImage(sub.photos[0].photo_url)}
-                                            style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px', cursor: 'pointer' }}
-                                        />
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', alignItems: 'start' }}>
+                                    <div>
+                                        <ul>
+                                            <li>PPE Worn: {sub.ppe_checked ? 'Yes' : 'No'}</li>
+                                            <li>Fall Protection: {sub.fall_protection_checked ? 'Yes' : 'No'}</li>
+                                            <li>Ladders/Scaffolding Inspected: {sub.ladders_inspected ? 'Yes' : 'No'}</li>
+                                            <li>Tools Condition OK: {sub.tools_ok ? 'Yes' : 'No'}</li>
+                                        </ul>
+                                        {sub.notes && <p style={{ marginTop: '0.5rem' }}><strong>Notes:</strong> {sub.notes}</p>}
                                     </div>
-                                )}
+                                    <div>
+                                        {sub.photos && sub.photos.length > 0 && (
+                                            <div>
+                                                <strong>Attached Photo:</strong><br />
+                                                <img
+                                                    src={sub.photos[0].photo_url}
+                                                    alt="Safety submission"
+                                                    onClick={() => setSelectedModalImage(sub.photos[0].photo_url)}
+                                                    style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: '4px', marginTop: '4px', cursor: 'pointer' }}
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
